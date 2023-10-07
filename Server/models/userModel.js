@@ -51,8 +51,8 @@ userSchema.methods.comparePassword = async function (password) {
 }
 
 //JWT Token
-userSchema.methods.createJWT = async function () {
-    return  jwt.sign({ id: this._id }, process.env.JWT_SECRET_KEY, {
+userSchema.methods.createJWT =  function () {
+    return  jwt.sign({ userId: this._id }, process.env.JWT_SECRET_KEY, {
         expiresIn: process.env.JWT_EXPIRE,
     });
 };
